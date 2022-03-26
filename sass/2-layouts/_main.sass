@@ -1,0 +1,134 @@
+@use "mixins"
+  
+#main
+  width: fit-content
+  display: flex
+  flex-direction: column
+  justify-content: center
+  margin: 0 300px
+
+  @include mixins.mobile-medio
+    margin: 0 -100px
+    align-items: center
+
+  @include mixins.mini-mobile
+    max-width: 425px
+  
+.main-container
+  border: 1px solid #dfe0e7
+  border-radius: 8px
+  background-color: #fff
+  height: fit-content
+  width: 248px
+  position: relative
+  margin-left: 140px
+  margin-top: 66px
+
+  @include mixins.mini-mobile
+    margin-left: 200px
+    width: 393px
+
+  span
+    font-weight: 700
+    font-size: 12px
+    color: #20252B
+
+  h3
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+
+  p
+    font-size: 14px
+    font-weight: 400
+    line-height: 130%
+    color: #798AA4
+
+  &-topo, &-midle, &-end
+    padding: 16px
+    border-bottom: 1px solid #E7E8EF
+
+  &-midle
+    display: flex
+    flex-direction: column
+
+    &-flex
+      display: flex
+      flex-direction: row
+      margin-bottom: 16px
+      justify-content: flex-start
+      gap: 32px
+
+    &-left
+      display: flex
+      flex-direction: row
+      width: fit-content
+
+    &-third
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      gap: 18px
+
+      @include mixins.mini-mobile
+        flex-direction: row
+
+      h2
+        font-size: 12px
+        color: #20252B
+
+    &-last
+      display: flex
+      flex-direction: column
+            
+    .border-radius
+      display: flex
+      flex-direction: row
+      align-items: center
+      justify-content: center
+      height: 32px
+      width: 32px
+      background: #F5F6FA
+      border: 1px solid #DFE0E7
+      border-radius: 50%
+      margin-left: 16px
+      margin-top: 5px
+
+  .content
+    display: flex
+    flex-direction: row
+
+    i
+      color: #1854C4
+
+    h3
+      color: #20252B
+      font-size: 16px
+      font-weight: 600
+  
+  &-print
+    padding: 16px
+    display: flex
+    justify-content: center
+    align-items: center
+
+    .btn
+      padding: 10px 16px
+      width: 216px
+      height: 32px
+      border: 1px solid #C8CED8
+      background: #fff
+      border-radius: 4px
+      color: #556476
+      text-transform: uppercase
+      display: flex
+      justify-content: center
+      align-items: center
+      font-weight: 700
+      gap: 8px
+    
+
+
+
+
+    
