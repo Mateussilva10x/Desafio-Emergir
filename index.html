@@ -23,168 +23,29 @@
   <body>
     <header class="header">
       <div class="header-text">
-        <i class="fa-solid fa-file"></i>
-        <h1 date-header>Relatório de Visita Técnica -</h1>
+        <!-- <i class="fa-solid fa-file"></i> -->
+        <!-- <h1 date-header>Relatório de Visita Técnica -</h1> -->
       </div>
       <div id="img-header" class="header-img">
         <img src="images/logo-fb.png" alt="" />
       </div>
     </header>
     <main id="main">
+      <section class="load">
+        <h1>LOADING</h1>
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </section>
       <section class="main-container">
-        <aside class="main-aside">
-          <div id="first-content" class="main-aside-content">
-            <span>Fazenda</span>
-            <h3 farm-name></h3>
-            <p class="text-information">3 talhões</p>
-          </div>
-          <div class="main-aside-content row">
-            <div class="main-aside-content-midle">
-              <div class="main-aside-content-midle-text">
-                <span>Data da visita</span>
-                <h3 visit-date></h3>
-              </div>
-              <div class="main-aside-content-midle-text">
-                <span>Safra</span>
-                <h3 safra-date></h3>
-              </div>
-            </div>
-            <div class="main-aside-content-midle">
-              <div class="main-aside-content-midle-text">
-                <span>Realizada por</span>
-                <h3 owner-name></h3>
-              </div>
-              <div class="border-radius">
-                <h3 initials></h3>
-              </div>
-            </div>
-            <div class="main-aside-content-icon">
-              <span></span>
-              <div class="icon-container">
-                <!-- <i class="fa-solid fa-droplet watter-icon"></i> -->
-                <h2></h2>
-              </div>
-              <p class="text-information p4"></p>
-            </div>
-          </div>
-
-          <div class="main-aside-content">
-            <span>Observações</span>
-            <p observation></p>
-          </div>
-          <div class="main-aside-content">
-            <button class="btn">
-              <i class="fa-solid fa-print"></i>imprimir
-            </button>
-          </div>
-        </aside>
         <section class="content">
-          <h2>Anotações da fazenda</h2>
-          <div id="row-content" class="content-article row">
-            <!-- <div class="row-content">
-              <span><i class="fa-solid fa-pencil"></i>Anotações</span>
-              <div class="images-article">
-                <img src="images/image-1.png" alt="" />
-                <img src="images/image-2.png" alt="" />
-              </div>
-              <p>Lorem ipsum dolor sit amet!</p>
-            </div>
-            <div class="row-content">
-              <span><i class="fa-solid fa-pencil"></i>Anotações</span>
-              <div class="images-article">
-                <img src="images/image-1.png" alt="" />
-                <img src="images/image-2.png" alt="" />
-                <img src="images/image-3.png" alt="" />
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.
-              </p>
-            </div> -->
-          </div>
-          <h2 class="information-title">Eventos dos talhões</h2>
-          <div id="content-plantations" class="content-article column">
-            <!-- <div class="content-article-container">
-                <div class="content-article-text">
-                  <h3>T 02-GG 666<span>1º ciclo</span></h3>
-                  <p>GG 666 IPRO - 230,10 Ha</p>
-                  <h5>Plantado</h5>
-                </div>
-                <div class="content-article-dates">
-                  <div class="dates-content">
-                    <h3>Data do Plantio</h3>
-                    <p>18/01/2020</p>
-                  </div>
-                  <div class="dates-content">
-                    <h3>Emergência</h3>
-                    <p>23/01/2020</p>
-                  </div>
-                  <div class="dates-content">
-                    <h3>Colheita</h3>
-                    <p>09/05/2020</p>
-                  </div>
-                </div>
-                <div class="icon-content">
-                  <i class="fa-solid fa-chevron-up"></i>
-                </div>
-           </div>
-          </div> -->
-            <!-- <div class="content-article row">
-            <div class="row-content">
-              <span><i class="fa-solid fa-pencil"></i>Anotações</span>
-              <div class="images-article">
-                <img src="images/image-4.png" alt="" />
-                <img src="images/image-5.png" alt="" />
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                eget lectus non nunc fermentum porttitor. Quisque aliquam odio eu
-                sapien commodo, sit amet sollicitudin nisl rhoncus. Quisque sed
-                leo iaculis, vulputate neque id, auctor elit. Donec commodo eu
-                urna non porta. Nulla luctus vel nulla venenatis suscipit.
-              </p>
-            </div>
-            
-            <div class="row-content">
-              <span><i class="fa-solid fa-pencil"></i>Anotações</span>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in.
-              </p>
-            </div>
-          </div>
-          </div> -->
-            <!-- <div class="content-article">
-              <div class="content-article-container">
-              <div class="content-article-text">
-                <h3>T 02-GG 666<span>1º ciclo</span></h3>
-                <p>GG 666 IPRO - 230,10 Ha</p>
-                <h5>Plantado</h5>
-              </div>
-              <div class="content-article-dates">
-                <div class="dates-content">
-                  <h3>Data do Plantio</h3>
-                  <p>18/01/2020</p>
-                </div>
-                <div class="dates-content">
-                  <h3>Emergência</h3>
-                  <p>23/01/2020</p>
-                </div>
-                <div class="dates-content">
-                  <h3>Colheita</h3>
-                  <p>09/05/2020</p>
-                </div>
-              </div>
-              <div class="icon-content">
-                <i class="fa-solid fa-chevron-up"></i>
-              </div>
-            </div>
-          </div> -->
-          </div>
+          <!-- <h2>Anotações da fazenda</h2> -->
+          <div id="row-content" class="content-article row"></div>
+          <!-- <h2 class="information-title">Eventos dos talhões</h2> -->
+          <div id="content-plantations" class="content-article column"></div>
         </section>
       </section>
     </main>
@@ -192,6 +53,6 @@
       <p>&copy; 2022 CheckPlant Sistemas SA</p>
     </footer>
 
-    <script src="./js/app.js"></script>
+    <script src="./js/app.js" type="module"></script>
   </body>
 </html>
