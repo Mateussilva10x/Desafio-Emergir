@@ -64,7 +64,7 @@
       margin: 8px 0
       display: flex
       flex-direction: row
-      gap: 4px
+      gap: 8px
 
   .content-article-container
     display: flex
@@ -72,13 +72,13 @@
     width: 100%
     background: #fff
     justify-content: space-between
-    padding: 0 16px
     border: 1px solid #DFE0E7
     box-sizing: border-box
     border-radius: 8px
 
     .content-article-text
       margin: 18px 0
+      padding-left: 16px
       h3
         color: #20252B
         font-size: 16px
@@ -101,6 +101,7 @@
         line-height: 100%
 
       h5
+        width: min-content
         align-items: center
         font-size: 12px
         margin-top: 6px
@@ -113,7 +114,6 @@
     .content-article-dates
       border-left: 1px solid #E7E8EF
       border-right: 1px solid #E7E8EF
-      margin-left: calc(43% - 20px)
       padding: 0 16px
 
       @include mixins.mobile-medio
@@ -145,6 +145,7 @@
     display: flex
     justify-content: center
     align-items: center
+    padding: 0 20px
 
     @include mixins.mobile-medio
       margin-right: 10%
@@ -153,14 +154,6 @@
 
     i
       cursor: pointer
-      margin-right: 20px
       font-weight: 900
       font-size: 18px
       line-height: 100%
-
-      @include mixins.mobile-medio
-        margin-left: 300%
-        margin-right: 0
-
-      @include mixins.mini-mobile
-        margin-left: 500%

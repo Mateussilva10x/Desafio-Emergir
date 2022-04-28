@@ -88,7 +88,7 @@ function renderContentNotes(data) {
     <p>${data.description}</p>
     </div>`;
 
-    cardRow.insertAdjacentHTML("afterbegin", cardNotes);
+    cardRow.insertAdjacentHTML("beforeend", cardNotes);
   }
 }
 renderNotes();
@@ -117,7 +117,7 @@ async function renderPlantations() {
         test = true;
       }
     });
-    console.log(test);
+    console.log(dados);
 
     renderHeaderPlantations(dados, index, test);
 
@@ -132,82 +132,46 @@ async function renderPlantations() {
 
 function renderHeaderPlantations(dados, index, boolean) {
   const cardSelector = document.querySelector("#content-plantations");
-  if (index === 1 && boolean) {
-    const cardPlantation = `
-      <div class="content-article-container">
-      <div class="content-article-text">
-        <h3>${dados.name}<span>${dados.cycle}º ciclo</span></h3>
-        <p>${dados.variety.name} ${dados.area} -  Ha</p>
-        <h5>Plantado</h5>
-      </div>
-      <div class="content-article-dates">
-        <div class="dates-content">
-          <h3>Data do Plantio</h3>
-          <p>${dados.date.split("-").reverse().join("/")}</p>
-        </div>
-        <div class="dates-content">
-          <h3>Emergência</h3>
-          <p>${
-            dados.emergence_date !== null
-              ? dados.emergence_date.split("-").reverse().join("/")
-              : "----"
-          }</p>
-        </div>
-        <div class="dates-content">
-          <h3>Colheita</h3>
-          <p>${dados.harvest_prediction_date.split("-").reverse().join("/")}</p>
-        </div>
-      </div>
-      <div class="icon-content">
-        <i arrow${dados.id} class="fa-solid fa-chevron-up"></i>
-      </div>
-    </div>
-    <div data-he${dados.id} class="content-article row">
-    </div>`;
-
-    cardSelector.insertAdjacentHTML("afterbegin", cardPlantation);
-  } else if (index === 0 && !boolean) {
-    const cardPlantation = `
-      <div class="content-article-container">
-      <div class="content-article-text">
-        <h3>${dados.name}<span>${dados.cycle}º ciclo</span></h3>
-        <p>${dados.variety.name} ${dados.area} -  Ha</p>
-        <h5>Plantado</h5>
-      </div>
-      <div class="content-article-dates">
-        <div class="dates-content">
-          <h3>Data do Plantio</h3>
-          <p>${dados.date.split("-").reverse().join("/")}</p>
-        </div>
-        <div class="dates-content">
-          <h3>Emergência</h3>
-          <p>${
-            dados.emergence_date !== null
-              ? dados.emergence_date.split("-").reverse().join("/")
-              : "----"
-          }</p>
-        </div>
-        <div class="dates-content">
-          <h3>Colheita</h3>
-          <p>${dados.harvest_prediction_date.split("-").reverse().join("/")}</p>
-        </div>
-      </div>
-      <div class="icon-content">
-        <i arrow${dados.id} class="fa-solid fa-chevron-up"></i>
-      </div>
-    </div>
-    <div data-he${dados.id} class="content-article row" style="display: none;">
-    </div>`;
-
-    cardSelector.insertAdjacentHTML("afterbegin", cardPlantation);
-  } else {
-    const cardPlantation = `
-    <div class="content-article-container">
+  const htmlRender = ` 
+  <div class="content-article-container">
     <div class="content-article-text">
       <h3>${dados.name}<span>${dados.cycle}º ciclo</span></h3>
       <p>${dados.variety.name} ${dados.area} -  Ha</p>
       <h5>Plantado</h5>
     </div>
+    <div style="display: flex;">
+    <div class="content-article-dates">
+      <div class="dates-content">
+        <h3>Data do Plantio</h3>
+        <p>${dados.date.split("-").reverse().join("/")}</p>
+      </div>
+      <div class="dates-content">
+        <h3>Emergência</h3>
+        <p>${
+          dados.emergence_date !== null
+            ? dados.emergence_date.split("-").reverse().join("/")
+            : "----"
+        }</p>
+      </div>
+      <div class="dates-content">
+        <h3>Colheita</h3>
+        <p>${dados.harvest_prediction_date.split("-").reverse().join("/")}</p>
+      </div>
+    </div>
+    <div class="icon-content">
+      <i arrow${dados.id} class="fa-solid fa-chevron-up"></i>
+    </div>
+    </div>
+  </div>
+`;
+  const htmlRenderClose = ` 
+  <div class="content-article-container">
+    <div class="content-article-text">
+      <h3>${dados.name}<span>${dados.cycle}º ciclo</span></h3>
+      <p>${dados.variety.name} ${dados.area} -  Ha</p>
+      <h5>Plantado</h5>
+    </div>
+    <div style="display: flex;">
     <div class="content-article-dates">
       <div class="dates-content">
         <h3>Data do Plantio</h3>
@@ -229,11 +193,21 @@ function renderHeaderPlantations(dados, index, boolean) {
     <div class="icon-content">
       <i arrow${dados.id} class="fa-solid fa-chevron-down"></i>
     </div>
+    </div>
   </div>
-  <div data-he${dados.id} class="content-article row" style="display: none;">
+`;
+  if (index === 0 && boolean) {
+    const cardPlantation = `${htmlRender}<div data-he${dados.id} class="content-article row">
+    </div>`;
+    cardSelector.insertAdjacentHTML("beforeend", cardPlantation);
+  } else if (index === 0 && !boolean) {
+    const cardPlantation = `${htmlRender}<div data-he${dados.id} class="content-article row" style="display: none;">
+    </div>`;
+    cardSelector.insertAdjacentHTML("beforeend", cardPlantation);
+  } else {
+    const cardPlantation = `${htmlRenderClose}<div data-he${dados.id} class="content-article row" style="display: none;">
   </div>`;
-
-    cardSelector.insertAdjacentHTML("afterbegin", cardPlantation);
+    cardSelector.insertAdjacentHTML("beforeend", cardPlantation);
   }
 }
 
@@ -277,7 +251,7 @@ function renderContentPlantations(item) {
     <p>${item.description}</p>
     </div>
     `;
-    cardRow.insertAdjacentHTML("afterbegin", cardNotes);
+    cardRow.insertAdjacentHTML("beforeend", cardNotes);
   } else {
     const cardRow = document.querySelector(`[data-he${item.location.id}]`);
     const cardNotes = ` <div class="row-content">
@@ -286,7 +260,7 @@ function renderContentPlantations(item) {
     </div>
     `;
 
-    cardRow.insertAdjacentHTML("afterbegin", cardNotes);
+    cardRow.insertAdjacentHTML("beforeend", cardNotes);
   }
 }
 renderPlantations();
