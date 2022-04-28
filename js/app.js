@@ -11,7 +11,7 @@ import { renderNotes } from "./controller/notes_farm.js";
 import { renderPlantations } from "./controller/plantations.js";
 renderHeader();
 
-window.onload = () => {
+window.onload = async () => {
   document.querySelector(".load").style = "display: flex";
   document.querySelector(".main-container").style = "display: none";
 
@@ -21,20 +21,17 @@ window.onload = () => {
   const title2 = `<h2 class="information-title">Eventos dos talhões</h2>`;
 
   if (document.readyState === "complete") {
-    setTimeout(function () {
+    try {
+      test.insertAdjacentHTML("afterbegin", title);
+      test2.insertAdjacentHTML("afterend", title2);
+      await renderPlantations();
+      await renderNotes();
+      await renderView();
+    } catch (e) {
+      console.log(e);
+    } finally {
       document.querySelector(".main-container").style = "";
-
-      try {
-        test.insertAdjacentHTML("afterbegin", title);
-        test2.insertAdjacentHTML("afterend", title2);
-        renderPlantations();
-        renderNotes();
-        renderView();
-      } catch (e) {
-        console.log(e);
-      } finally {
-        document.querySelector(".load").style = "display: none";
-      }
-    });
+      document.querySelector(".load").style = "display: none";
+    }
   }
 };
