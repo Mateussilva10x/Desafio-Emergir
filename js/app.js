@@ -1,6 +1,8 @@
 //GET URL API
+const key = "https://justcors.com/tl_fba9df5/";
+
 async function getResource(resource) {
-  const url = `https://justcors.com/tl_288aad0/https://farmbox.cc/api/public/technical_visit_report/${resource}.json?token=379238b5-705c-48bc-b8c9-27e26676b417`;
+  const url = `${key}https://farmbox.cc/api/public/technical_visit_report/${resource}.json?token=379238b5-705c-48bc-b8c9-27e26676b417`;
 
   try {
     const response = await fetch(url);
@@ -12,7 +14,7 @@ async function getResource(resource) {
 }
 
 async function getDetails() {
-  const url = `https://justcors.com/tl_288aad0/https://farmbox.cc/api/public/content_details.json?token=379238b5-705c-48bc-b8c9-27e26676b417`;
+  const url = `${key}https://farmbox.cc/api/public/content_details.json?token=379238b5-705c-48bc-b8c9-27e26676b417`;
 
   try {
     const response = await fetch(url);
@@ -93,65 +95,151 @@ renderNotes();
 
 //PLANTATIONS
 async function renderPlantations() {
-  const dados = await getResource("plantations").then((res) => {
-    return res;
-  });
+  const dados = await getResource("plantations");
+  const data = await getResource("notes");
 
-  dados.results.forEach((bases) => renderHeaderPlantations(bases));
+  let arr1 = [];
+
+  data.results.forEach((data) => {
+    dados.results.forEach((dados) => {
+      if (data.location.id === dados.id) {
+        arr1.push(data);
+      }
+    });
+  });
+  console.log(arr1);
+
+  dados.results.forEach((dados, index) => {
+    let test = false;
+
+    data.results.forEach((data) => {
+      if (data.location.id === dados.id) {
+        test = true;
+      }
+    });
+    console.log(test);
+
+    renderHeaderPlantations(dados, index, test);
+
+    arr1.forEach((data) => {
+      if (data.location.id === dados.id) {
+        let current_id = data.location.id;
+        renderContentPlantations(data, current_id);
+      }
+    });
+  });
 }
 
-async function renderNotesPlantation() {
-  const dados = await getResource("notes").then((res) => {
-    return res;
-  });
-
-  dados.results.forEach((item) => {
-    if (item.location_type === "Plantation") {
-      renderContentPlantations(item);
-    }
-  });
-}
-
-function renderHeaderPlantations(bases) {
+function renderHeaderPlantations(dados, index, boolean) {
   const cardSelector = document.querySelector("#content-plantations");
-  const cardPlantation = `   
-  <div class="content-article-container">
-  <div class="content-article-text">
-    <h3>${bases.name}<span>${bases.cycle}º ciclo</span></h3>
-    <p>${bases.variety.name} ${bases.area} -  Ha</p>
-    <h5>Plantado</h5>
-  </div>
-  <div class="content-article-dates">
-    <div class="dates-content">
-      <h3>Data do Plantio</h3>
-      <p>${bases.date.split("-").reverse().join("/")}</p>
+  if (index === 1 && boolean) {
+    const cardPlantation = `
+      <div class="content-article-container">
+      <div class="content-article-text">
+        <h3>${dados.name}<span>${dados.cycle}º ciclo</span></h3>
+        <p>${dados.variety.name} ${dados.area} -  Ha</p>
+        <h5>Plantado</h5>
+      </div>
+      <div class="content-article-dates">
+        <div class="dates-content">
+          <h3>Data do Plantio</h3>
+          <p>${dados.date.split("-").reverse().join("/")}</p>
+        </div>
+        <div class="dates-content">
+          <h3>Emergência</h3>
+          <p>${
+            dados.emergence_date !== null
+              ? dados.emergence_date.split("-").reverse().join("/")
+              : "----"
+          }</p>
+        </div>
+        <div class="dates-content">
+          <h3>Colheita</h3>
+          <p>${dados.harvest_prediction_date.split("-").reverse().join("/")}</p>
+        </div>
+      </div>
+      <div class="icon-content">
+        <i arrow${dados.id} class="fa-solid fa-chevron-up"></i>
+      </div>
     </div>
-    <div class="dates-content">
-      <h3>Emergência</h3>
-      <p>${
-        bases.emergence_date !== null
-          ? bases.emergence_date.split("-").reverse().join("/")
-          : "----"
-      }</p>
-    </div>
-    <div class="dates-content">
-      <h3>Colheita</h3>
-      <p>${bases.harvest_prediction_date.split("-").reverse().join("/")}</p>
-    </div>
-  </div>
-  <div class="icon-content">
-    <i arrow class="fa-solid fa-chevron-up"></i>
-  </div>
-</div>
-<div data-he${bases.id} class="content-article row">
-  
-</div>`;
+    <div data-he${dados.id} class="content-article row">
+    </div>`;
 
-  cardSelector.insertAdjacentHTML("afterbegin", cardPlantation);
+    cardSelector.insertAdjacentHTML("afterbegin", cardPlantation);
+  } else if (index === 0 && !boolean) {
+    const cardPlantation = `
+      <div class="content-article-container">
+      <div class="content-article-text">
+        <h3>${dados.name}<span>${dados.cycle}º ciclo</span></h3>
+        <p>${dados.variety.name} ${dados.area} -  Ha</p>
+        <h5>Plantado</h5>
+      </div>
+      <div class="content-article-dates">
+        <div class="dates-content">
+          <h3>Data do Plantio</h3>
+          <p>${dados.date.split("-").reverse().join("/")}</p>
+        </div>
+        <div class="dates-content">
+          <h3>Emergência</h3>
+          <p>${
+            dados.emergence_date !== null
+              ? dados.emergence_date.split("-").reverse().join("/")
+              : "----"
+          }</p>
+        </div>
+        <div class="dates-content">
+          <h3>Colheita</h3>
+          <p>${dados.harvest_prediction_date.split("-").reverse().join("/")}</p>
+        </div>
+      </div>
+      <div class="icon-content">
+        <i arrow${dados.id} class="fa-solid fa-chevron-up"></i>
+      </div>
+    </div>
+    <div data-he${dados.id} class="content-article row" style="display: none;">
+    </div>`;
+
+    cardSelector.insertAdjacentHTML("afterbegin", cardPlantation);
+  } else {
+    const cardPlantation = `
+    <div class="content-article-container">
+    <div class="content-article-text">
+      <h3>${dados.name}<span>${dados.cycle}º ciclo</span></h3>
+      <p>${dados.variety.name} ${dados.area} -  Ha</p>
+      <h5>Plantado</h5>
+    </div>
+    <div class="content-article-dates">
+      <div class="dates-content">
+        <h3>Data do Plantio</h3>
+        <p>${dados.date.split("-").reverse().join("/")}</p>
+      </div>
+      <div class="dates-content">
+        <h3>Emergência</h3>
+        <p>${
+          dados.emergence_date !== null
+            ? dados.emergence_date.split("-").reverse().join("/")
+            : "----"
+        }</p>
+      </div>
+      <div class="dates-content">
+        <h3>Colheita</h3>
+        <p>${dados.harvest_prediction_date.split("-").reverse().join("/")}</p>
+      </div>
+    </div>
+    <div class="icon-content">
+      <i arrow${dados.id} class="fa-solid fa-chevron-down"></i>
+    </div>
+  </div>
+  <div data-he${dados.id} class="content-article row" style="display: none;">
+  </div>`;
+
+    cardSelector.insertAdjacentHTML("afterbegin", cardPlantation);
+  }
 }
 
 function renderContentPlantations(item) {
-  const arrows = document.querySelector("[arrow]");
+  const cardRow = document.querySelector(`[data-he${item.location.id}]`);
+  const arrows = document.querySelector(`[arrow${item.location.id}]`);
   arrows.addEventListener("click", hideContainer);
 
   function hideContainer() {
@@ -159,10 +247,20 @@ function renderContentPlantations(item) {
     if (arrows.classList.contains("fa-chevron-up")) {
       arrows.classList.remove("fa-chevron-up");
       arrows.classList.add("fa-chevron-down");
+      hide();
     } else {
       arrows.classList.add("fa-chevron-up");
       arrows.classList.remove("fa-chevron-down");
+      appear();
     }
+  }
+
+  function hide() {
+    cardRow.style.display = "none";
+  }
+
+  function appear() {
+    cardRow.style.display = "flex";
   }
 
   if (item.attachments.images.length != 0) {
@@ -171,7 +269,6 @@ function renderContentPlantations(item) {
       urls.push(element.thumb_url);
     });
 
-    const cardRow = document.querySelector(`[data-he${item.location.id}]`);
     const cardNotes = ` <div class="row-content">
     <span><i class="fa-solid fa-pencil"></i>Anotações</span>
     <div class="images-article">
@@ -180,7 +277,6 @@ function renderContentPlantations(item) {
     <p>${item.description}</p>
     </div>
     `;
-
     cardRow.insertAdjacentHTML("afterbegin", cardNotes);
   } else {
     const cardRow = document.querySelector(`[data-he${item.location.id}]`);
@@ -193,9 +289,7 @@ function renderContentPlantations(item) {
     cardRow.insertAdjacentHTML("afterbegin", cardNotes);
   }
 }
-
 renderPlantations();
-renderNotesPlantation();
 
 // getResource("plantations").then((res) =>
 //   console.log(JSON.stringify(res, null, 2))
