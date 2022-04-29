@@ -1,15 +1,15 @@
 //HEADER
 import { renderHeader } from "./view/headerView.js";
+renderHeader();
 
 //ASIDE
 import { renderView } from "./view/asideView.js";
 
 //NOTES
-import { renderNotes } from "./controller/notes_farm.js";
+import { renderNotes } from "./controller/notes_farm_controller.js";
 
 //PLANTATIONS
 import { renderPlantations } from "./controller/plantations_controller.js";
-renderHeader();
 
 window.onload = async () => {
   document.querySelector(".load").style = "display: flex";
