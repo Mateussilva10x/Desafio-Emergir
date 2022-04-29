@@ -69,7 +69,7 @@ export function renderHeaderPlantations(dados, index, boolean) {
     </div>`;
     cardSelector.insertAdjacentHTML("beforeend", cardPlantation);
   } else if (index === 0 && !boolean) {
-    const cardPlantation = `${htmlRender}<div data-he${dados.id} class="content-article row" style="display: none;">
+    const cardPlantation = `${htmlRenderClose}<div data-he${dados.id} class="content-article row" style="display: none;">
     </div>`;
     cardSelector.insertAdjacentHTML("beforeend", cardPlantation);
   } else {

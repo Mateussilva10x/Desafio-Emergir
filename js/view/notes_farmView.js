@@ -11,7 +11,7 @@ export function renderContentNotes(data) {
       .split("T")[1]
       .slice(0, 5)}</span></span>
     <div class="images-article">
-      ${urls.map((el) => `<img src="${el}" alt="" />`).join("")}
+      ${urls.map((el) => `<img  src="${el}" alt="" />`).join("")}
     </div>
     <p>${data.description}</p>
     </div>`;

@@ -18,15 +18,15 @@ export async function renderPlantations() {
   });
 
   dados.results.forEach((dados, index) => {
-    let test = false;
+    let cards = false;
 
     data.results.forEach((data) => {
       if (data.location.id === dados.id) {
-        test = true;
+        cards = true;
       }
     });
 
-    renderHeaderPlantations(dados, index, test);
+    renderHeaderPlantations(dados, index, cards);
 
     arr1.forEach((data) => {
       if (data.location.id === dados.id) {
