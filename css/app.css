@@ -148,7 +148,7 @@ body {
 }
 @media (max-width: 736px) {
   .main-container {
-    width: 100%;
+    width: 97%;
     flex-direction: column;
   }
 }
