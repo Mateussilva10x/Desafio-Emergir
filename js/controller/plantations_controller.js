@@ -4,6 +4,7 @@ import { renderContentPlantations } from "../view/plantationsView.js";
 
 export async function renderPlantations() {
   const dados = await getResource("plantations");
+  console.log(dados);
   const data = await getResource("notes");
 
   let arr1 = [];

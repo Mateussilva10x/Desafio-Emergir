@@ -18,7 +18,7 @@ export function renderHeaderPlantations(dados, index, boolean) {
         <p>${
           dados.emergence_date !== null
             ? dados.emergence_date.split("-").reverse().join("/")
-            : "Não Informado"
+            : dados.emergence_prediction_date.split("-").reverse().join("/")
         }</p>
       </div>
       <div class="dates-content">
@@ -50,7 +50,7 @@ export function renderHeaderPlantations(dados, index, boolean) {
         <p>${
           dados.emergence_date !== null
             ? dados.emergence_date.split("-").reverse().join("/")
-            : "Não Informado"
+            : dados.emergence_prediction_date.split("-").reverse().join("/")
         }</p>
       </div>
       <div class="dates-content">
@@ -111,7 +111,9 @@ export function renderContentPlantations(item) {
     });
 
     const cardNotes = ` <div class="row-content">
-    <span><i class="fa-solid fa-pencil"></i>Anotações</span>
+    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${item.date
+      .split("T")[1]
+      .slice(0, 5)}</span></span>
     <div class="images-article">
       ${urls.map((el) => `<img src="${el}" alt="" />`).join("")}
     </div>
@@ -122,7 +124,9 @@ export function renderContentPlantations(item) {
   } else {
     const cardRow = document.querySelector(`[data-he${item.location.id}]`);
     const cardNotes = ` <div class="row-content">
-    <span><i class="fa-solid fa-pencil"></i>Anotações</span>
+    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${item.date
+      .split("T")[1]
+      .slice(0, 5)}</span></span>
     <p>${item.description}</p>
     </div>
     `;

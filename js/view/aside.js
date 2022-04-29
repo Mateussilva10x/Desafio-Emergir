@@ -3,15 +3,14 @@ import { getDetails, getDetailsFarm } from "../module/api.js";
 export async function renderView() {
   const infos = await getDetails();
   const water = await getDetailsFarm();
+  const plots = water.plots + water.active_harvest_plantations.length;
   const renderAside = document.querySelector(".main-container");
   const renderContent = `
     <aside class="main-aside">
     <div id="first-content" class="main-aside-content">
     <span>Fazenda</span>
     <h3 farm-name>${infos.farm.name}</h3>
-    <p class="text-information">${
-      water.active_harvest_plantations.length
-    } talhões</p>
+    <p class="text-information">${plots} talhões</p>
   </div>
   <div class="main-aside-content row">
     <div class="main-aside-content-midle">
@@ -57,4 +56,8 @@ export async function renderView() {
   </aside>`;
 
   renderAside.insertAdjacentHTML("afterbegin", renderContent);
+
+  document.querySelector("button").addEventListener("click", function () {
+    window.print();
+  });
 }

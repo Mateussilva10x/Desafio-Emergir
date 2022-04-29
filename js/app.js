@@ -8,7 +8,7 @@ import { renderView } from "./view/aside.js";
 import { renderNotes } from "./controller/notes_farm.js";
 
 //PLANTATIONS
-import { renderPlantations } from "./controller/plantations.js";
+import { renderPlantations } from "./controller/plantations_controller.js";
 renderHeader();
 
 window.onload = async () => {

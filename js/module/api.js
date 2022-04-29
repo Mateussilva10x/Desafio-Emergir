@@ -19,6 +19,7 @@ export async function getDetails() {
   try {
     const response = await fetch(url);
     const dados = await response.json();
+    console.log(dados);
     return dados;
   } catch (e) {
     return console.log("deu erro", e);
@@ -31,6 +32,7 @@ export async function getDetailsFarm() {
   try {
     const response = await fetch(url);
     const dados = await response.json();
+    console.log(dados);
     return dados;
   } catch (e) {
     return console.log("deu erro", e);

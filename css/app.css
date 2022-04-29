@@ -30,7 +30,7 @@ body {
 
 .header {
   background-color: #fff;
-  box-shadow: 0px 2px 1px rgba(65, 81, 100, 0.15);
+  box-shadow: 0px 3px 12px rgba(65, 81, 100, 0.12), 0px 3px 8px rgba(65, 81, 100, 0.24);
   padding: 8px 32px;
   z-index: 1;
   display: flex;
@@ -48,6 +48,11 @@ body {
   font-weight: 700;
   font-size: 24px;
   line-height: 100%;
+}
+@media (max-width: 736px) {
+  .header-text h1 {
+    font-size: 16px;
+  }
 }
 .header-text i {
   color: #798AA4;
@@ -80,6 +85,13 @@ body {
 #main .load img {
   width: 100%;
   height: 100%;
+}
+#main .load h1 {
+  color: #363E48;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 100%;
 }
 #main .load .lds-ring {
   display: inline-block;
@@ -276,11 +288,27 @@ body {
   color: #363E48;
 }
 .content-article p {
-  margin-top: 8px;
   color: #415164;
   font-weight: 400;
   font-size: 14px;
   line-height: 130%;
+}
+.content-article .space {
+  color: #415164;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  margin-left: 58%;
+}
+@media (max-width: 1049px) {
+  .content-article .space {
+    margin-left: 66%;
+  }
+}
+@media (max-width: 736px) {
+  .content-article .space {
+    display: none;
+  }
 }
 .content .column {
   display: flex;
@@ -309,12 +337,16 @@ body {
   box-sizing: border-box;
   border-radius: 8px;
 }
+.content .row-content p {
+  margin-top: 8px;
+}
 @media (max-width: 1049px) {
   .content .row-content {
     width: 100%;
   }
 }
 .content .row .images-article {
+  margin-bottom: 8px;
   margin-top: 8px;
   display: flex;
   flex-direction: row;
@@ -345,11 +377,11 @@ body {
   font-weight: 700;
 }
 .content .content-article-container .content-article-text h3 span {
-  padding: 2px 4px;
+  padding: 0 4px;
   margin-left: 12px;
   margin-bottom: 4px;
   background: #fff;
-  border: 2px solid #E7E8EF;
+  border: 1.5px solid #E7E8EF;
   border-radius: 8px;
   font-weight: 500;
   font-size: 12px;
@@ -370,7 +402,7 @@ body {
   color: #57760A;
   border: 1px solid #739E08;
   border-radius: 32px;
-  padding: 2px 8px;
+  padding: 0 8px;
 }
 .content .content-article-container .content-article-dates {
   border-left: 1px solid #E7E8EF;
@@ -387,18 +419,19 @@ body {
   flex-direction: row;
   justify-content: space-between;
   gap: 59px;
-  margin-top: 4px;
 }
 .content .content-article-container .dates-content:first-child {
-  margin-top: 22px;
+  margin-top: 18px;
 }
 .content .content-article-container .dates-content h3 {
+  margin-top: 4px;
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
   color: #20252B;
 }
 .content .content-article-container .dates-content p {
+  margin-top: 4px;
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;

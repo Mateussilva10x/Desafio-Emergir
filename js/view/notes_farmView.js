@@ -7,7 +7,9 @@ export function renderContentNotes(data) {
 
     const cardRow = document.querySelector("#row-content");
     const cardNotes = `<div class="row-content">
-    <span><i class="fa-solid fa-pencil"></i>Anotações</span>
+    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${data.date
+      .split("T")[1]
+      .slice(0, 5)}</span></span>
     <div class="images-article">
       ${urls.map((el) => `<img src="${el}" alt="" />`).join("")}
     </div>
@@ -18,7 +20,9 @@ export function renderContentNotes(data) {
   } else {
     const cardRow = document.querySelector("#row-content");
     const cardNotes = `<div class="row-content">
-    <span><i class="fa-solid fa-pencil"></i>Anotações</span>
+    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${data.date
+      .split("T")[1]
+      .slice(0, 5)}</span></span>
     <p>${data.description}</p>
     </div>`;
 
