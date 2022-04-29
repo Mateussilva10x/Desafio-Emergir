@@ -2,7 +2,7 @@
 import { renderHeader } from "./view/headerView.js";
 
 //ASIDE
-import { renderView } from "./view/aside.js";
+import { renderView } from "./view/asideView.js";
 
 //NOTES
 import { renderNotes } from "./controller/notes_farm.js";
