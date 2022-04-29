@@ -18,7 +18,7 @@ export function renderHeaderPlantations(dados, index, boolean) {
         <p>${
           dados.emergence_date !== null
             ? dados.emergence_date.split("-").reverse().join("/")
-            : "----"
+            : "Não Informado"
         }</p>
       </div>
       <div class="dates-content">
@@ -50,7 +50,7 @@ export function renderHeaderPlantations(dados, index, boolean) {
         <p>${
           dados.emergence_date !== null
             ? dados.emergence_date.split("-").reverse().join("/")
-            : "----"
+            : "Não Informado"
         }</p>
       </div>
       <div class="dates-content">
@@ -85,7 +85,6 @@ export function renderContentPlantations(item) {
   arrows.addEventListener("click", hideContainer);
 
   function hideContainer() {
-    console.log("clicou na flecha");
     if (arrows.classList.contains("fa-chevron-up")) {
       arrows.classList.remove("fa-chevron-up");
       arrows.classList.add("fa-chevron-down");

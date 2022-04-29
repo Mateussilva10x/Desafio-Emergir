@@ -24,22 +24,24 @@ export async function renderView() {
         <h3 safra-date>${infos.harvest.name}</h3>
       </div>
     </div>
-    <div class="main-aside-content-midle">
-      <div class="main-aside-content-midle-text">
-        <span>Realizada por</span>
-        <h3 owner-name>${infos.owner.name}</h3>
+    <div class="row-mobile">
+      <div class="main-aside-content-midle">
+        <div class="main-aside-content-midle-text">
+          <span>Realizada por</span>
+          <h3 owner-name>${infos.owner.name}</h3>
+        </div>
+        <div class="border-radius">
+          <h3 initials>${infos.owner.initials}</h3>
+        </div>
       </div>
-      <div class="border-radius">
-        <h3 initials>${infos.owner.initials}</h3>
+      <div class="main-aside-content-icon">
+        <span>Pluviometria</span>
+        <div class="icon-container">
+          <i class="fa-solid fa-droplet watter-icon"></i>
+          <h2>${water.rain_until_date} mm</h2>
+        </div>
+        <p class="text-information p4">Acumulado na safra</p>
       </div>
-    </div>
-    <div class="main-aside-content-icon">
-      <span>Pluviometria</span>
-      <div class="icon-container">
-        <i class="fa-solid fa-droplet watter-icon"></i>
-        <h2>${water.rain_until_date} mm</h2>
-      </div>
-      <p class="text-information p4">Acumulado na safra</p>
     </div>
   </div>
 
