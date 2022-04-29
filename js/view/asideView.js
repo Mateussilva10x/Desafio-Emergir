@@ -36,8 +36,11 @@ export async function renderView() {
       <div class="main-aside-content-icon">
         <span>Pluviometria</span>
         <div class="icon-container">
-          <i class="fa-solid fa-droplet watter-icon"></i>
-          <h2>${water.rain_until_date} mm</h2>
+        <h2><i class="fa fa-droplet water-icon"></i> ${
+          Number.isInteger(water.rain_until_date) === true
+            ? water.rain_until_date + ",00"
+            : water.rain_until_date
+        } mm</h2>
         </div>
         <p class="text-information p4">Acumulado na safra</p>
       </div>

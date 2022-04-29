@@ -4,7 +4,7 @@ export function renderHeaderPlantations(dados, index, boolean) {
   <div class="content-article-container">
     <div class="content-article-text">
       <h3>${dados.name}<span>${dados.cycle}º ciclo</span></h3>
-      <p>${dados.variety.name} ${dados.area} -  Ha</p>
+      <p>${dados.variety.name} ${dados.area} - Ha</p>
       <h5>Plantado</h5>
     </div>
     <div style="display: flex;">
@@ -36,7 +36,7 @@ export function renderHeaderPlantations(dados, index, boolean) {
   <div class="content-article-container">
     <div class="content-article-text">
       <h3>${dados.name}<span>${dados.cycle}º ciclo</span></h3>
-      <p>${dados.variety.name} ${dados.area} -  Ha</p>
+      <p>${dados.variety.name} ${dados.area} - Ha</p>
       <h5>Plantado</h5>
     </div>
     <div style="display: flex;">
@@ -69,7 +69,7 @@ export function renderHeaderPlantations(dados, index, boolean) {
     </div>`;
     cardSelector.insertAdjacentHTML("beforeend", cardPlantation);
   } else if (index === 0 && !boolean) {
-    const cardPlantation = `${htmlRenderClose}<div data-he${dados.id} class="content-article row" style="display: none;">
+    const cardPlantation = `${htmlRender}<div data-he${dados.id} class="content-article row" style="display: none;">
     </div>`;
     cardSelector.insertAdjacentHTML("beforeend", cardPlantation);
   } else {

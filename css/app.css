@@ -136,11 +136,6 @@ body {
   flex-direction: row;
   box-sizing: border-box;
 }
-@media (max-width: 1050px) {
-  .main-container {
-    width: 1050px;
-  }
-}
 @media (max-width: 1049px) {
   .main-container {
     width: 704px;
@@ -191,7 +186,7 @@ body {
   line-height: 130%;
   color: #415164;
 }
-.main-container .main-aside .watter-icon {
+.main-container .main-aside .water-icon {
   font-weight: 900;
   font-size: 14px;
   line-height: 100%;
