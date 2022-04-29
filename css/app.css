@@ -159,6 +159,12 @@ body {
   box-sizing: border-box;
   border-radius: 8px;
   background: #fff;
+  margin-top: 38px;
+}
+@media (max-width: 736px) {
+  .main-container .main-aside {
+    margin-top: 0;
+  }
 }
 .main-container .main-aside span {
   font-weight: 700;
