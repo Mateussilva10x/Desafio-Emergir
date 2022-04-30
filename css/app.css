@@ -81,6 +81,23 @@ body {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4);
 }
+.modal .modal-content {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.modal .modal-content span {
+  cursor: pointer;
+  color: #fff;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+}
+.modal .images-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 #main {
   display: flex;
@@ -369,6 +386,7 @@ body {
   gap: 8px;
 }
 .content .row .images-article img {
+  cursor: pointer;
   width: 100px;
   height: 100px;
   border-radius: 4px;

@@ -1,11 +1,11 @@
 export function renderContentNotes(data) {
-  const handleClick = (src) => {
-    console.log("clicou na function");
-  };
+  console.log(data);
   if (data.attachments.images.length != 0) {
-    const urls = [];
+    // const urls = [];
+    let imagesUrl = "";
     data.attachments.images.forEach((element) => {
-      urls.push(element.thumb_url);
+      // urls.push(element.thumb_url);
+      imagesUrl += `<img image-modal onclick="handleClick('${element.high_url}')" src="${element.thumb_url}" alt="" />`;
     });
 
     const cardRow = document.querySelector("#row-content");
@@ -14,11 +14,7 @@ export function renderContentNotes(data) {
       .split("T")[1]
       .slice(0, 5)}</span></span>
     <div class="images-article">
-      ${urls
-        .map(
-          (el) => `<img onclick="handleClick('${el}')" src="${el}" alt="" />`
-        )
-        .join("")}
+      ${imagesUrl}
     </div>
     <p>${data.description}</p>
     </div>`;

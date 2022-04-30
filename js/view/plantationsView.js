@@ -105,9 +105,11 @@ export function renderContentPlantations(item) {
   }
 
   if (item.attachments.images.length != 0) {
-    const urls = [];
+    // const urls = [];
+    let imagesUrl = "";
     item.attachments.images.forEach((element) => {
-      urls.push(element.thumb_url);
+      // urls.push(element.thumb_url);
+      imagesUrl += `<img image-modal onclick="handleClick('${element.high_url}')" src="${element.thumb_url}" alt="" />`;
     });
 
     const cardNotes = ` <div class="row-content">
@@ -115,7 +117,7 @@ export function renderContentPlantations(item) {
       .split("T")[1]
       .slice(0, 5)}</span></span>
     <div class="images-article">
-    ${urls.map((el) => `<img src="${el}" alt="" />`).join("")}
+    ${imagesUrl}
     </div>
     <p>${item.description}</p>
     </div>

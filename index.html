@@ -50,8 +50,29 @@
       <p>&copy; 2022 CheckPlant Sistemas SA</p>
     </footer>
 
-    <div class="modal"></div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="images-modal">
+          <img id="image-hight" src="" alt="" />
+        </div>
+        <span class="close">&times;</span>
+      </div>
+    </div>
 
     <script src="./js/app.js" type="module"></script>
+    <script>
+      const handleClick = (src) => {
+        var modal = document.getElementById("modal");
+        var modalImg = document.getElementById("image-hight");
+
+        modal.style.display = "block";
+        modalImg.src = src;
+
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function () {
+          modal.style.display = "none";
+        };
+      };
+    </script>
   </body>
 </html>
