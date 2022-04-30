@@ -1,4 +1,7 @@
 export function renderContentNotes(data) {
+  const handleClick = (src) => {
+    console.log("clicou na function");
+  };
   if (data.attachments.images.length != 0) {
     const urls = [];
     data.attachments.images.forEach((element) => {
@@ -11,7 +14,11 @@ export function renderContentNotes(data) {
       .split("T")[1]
       .slice(0, 5)}</span></span>
     <div class="images-article">
-      ${urls.map((el) => `<img  src="${el}" alt="" />`).join("")}
+      ${urls
+        .map(
+          (el) => `<img onclick="handleClick('${el}')" src="${el}" alt="" />`
+        )
+        .join("")}
     </div>
     <p>${data.description}</p>
     </div>`;
