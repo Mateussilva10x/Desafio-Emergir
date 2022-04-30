@@ -83,20 +83,25 @@ body {
 }
 .modal .modal-content {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   justify-content: center;
 }
 .modal .modal-content span {
+  margin: 0 1%;
   cursor: pointer;
   color: #fff;
   float: right;
-  font-size: 32px;
+  font-size: 55px;
   font-weight: bold;
+  line-height: 22px;
 }
 .modal .images-modal {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.modal .images-modal img {
+  max-width: 100%;
 }
 
 #main {
