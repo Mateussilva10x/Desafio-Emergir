@@ -1,4 +1,4 @@
-import { renderContentNotes } from "../view/notes_farmView.js";
+import { renderContentNotes } from "../view/notes_View.js";
 import { getResource } from "../module/api.js";
 
 export async function renderNotes() {
