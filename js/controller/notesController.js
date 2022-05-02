@@ -1,7 +1,7 @@
 import {
   renderContentNotes,
   renderContentPlantations,
-} from "../view/notes_View.js";
+} from "../view/notesView.js";
 import { getResource } from "../module/api.js";
 
 export async function renderNotes() {
