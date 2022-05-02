@@ -32,6 +32,7 @@ export function renderHeaderPlantations(dados, index) {
     </div>
   </div>
 `;
+
   const htmlRenderClose = ` 
   <div class="content-article-container">
     <div class="content-article-text">
@@ -64,6 +65,7 @@ export function renderHeaderPlantations(dados, index) {
     </div>
   </div>
 `;
+
   if (index === 0) {
     const cardPlantation = `${htmlRender}<div data-he${dados.id} class="content-article row">
     </div>`;

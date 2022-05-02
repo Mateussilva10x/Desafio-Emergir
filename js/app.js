@@ -1,17 +1,17 @@
 //HEADER
 import { renderHeader } from "./view/headerView.js";
-renderHeader();
 
 //ASIDE
 import { renderAside } from "./view/asideView.js";
 
 //NOTES
-import { renderNotes } from "./controller/notes_farm_controller.js";
+import { renderNotes } from "./controller/notesController.js";
 
 //PLANTATIONS
-import { renderPlantations } from "./controller/plantations_controller.js";
+import { renderPlantations } from "./controller/plantationsController.js";
 
 window.onload = async () => {
+  renderHeader();
   document.querySelector(".load").style = "display: flex";
   document.querySelector(".main-container").style = "display: none";
 

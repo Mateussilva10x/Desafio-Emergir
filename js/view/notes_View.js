@@ -1,9 +1,7 @@
 export function renderContentNotes(data) {
   if (data.attachments.images.length > 0) {
-    // const urls = [];
     let imagesUrl = "";
     data.attachments.images.forEach((element) => {
-      // urls.push(element.thumb_url);
       imagesUrl += `<img image-modal onclick="handleClick('${element.high_url}')" src="${element.thumb_url}" alt="" />`;
     });
 
@@ -58,10 +56,8 @@ export function renderContentPlantations(item) {
   }
 
   if (item.attachments.images.length != 0) {
-    // const urls = [];
     let imagesUrl = "";
     item.attachments.images.forEach((element) => {
-      // urls.push(element.thumb_url);
       imagesUrl += `<img image-modal onclick="handleClick('${element.high_url}')" src="${element.thumb_url}" alt="" />`;
     });
 
