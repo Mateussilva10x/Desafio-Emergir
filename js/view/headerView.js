@@ -1,7 +1,7 @@
 import { getDetails } from "../module/api.js";
 
 export async function renderHeader() {
-  const infos = await getDetails().then((res) => res);
+  const infos = await getDetails();
   const header = document.querySelector(".header-text");
   const headerContent = `
   <i class="fa-solid fa-file"></i>

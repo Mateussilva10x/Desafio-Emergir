@@ -1,6 +1,8 @@
 import { getResource } from "../module/api.js";
-import { renderHeaderPlantations } from "../view/plantationsView.js";
-import { renderContentPlantations } from "../view/plantationsView.js";
+import {
+  renderHeaderPlantations,
+  renderContentPlantations,
+} from "../view/plantationsView.js";
 
 export async function renderPlantations() {
   const dados = await getResource("plantations");

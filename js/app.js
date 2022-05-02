@@ -3,7 +3,7 @@ import { renderHeader } from "./view/headerView.js";
 renderHeader();
 
 //ASIDE
-import { renderView } from "./view/asideView.js";
+import { renderAside } from "./view/asideView.js";
 
 //NOTES
 import { renderNotes } from "./controller/notes_farm_controller.js";
@@ -26,7 +26,7 @@ window.onload = async () => {
       content.insertAdjacentHTML("afterend", title2);
       await renderPlantations();
       await renderNotes();
-      await renderView();
+      await renderAside();
     } catch (e) {
       console.log(e);
     } finally {

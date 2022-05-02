@@ -1,6 +1,6 @@
 import { getDetails, getDetailsFarm } from "../module/api.js";
 
-export async function renderView() {
+export async function renderAside() {
   const infos = await getDetails();
   const water = await getDetailsFarm();
   const plots = water.plots + water.active_harvest_plantations.length;
