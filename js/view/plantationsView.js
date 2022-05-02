@@ -1,4 +1,4 @@
-export function renderHeaderPlantations(dados, index, boolean) {
+export function renderHeaderPlantations(dados, index) {
   const cardSelector = document.querySelector("#content-plantations");
   const htmlRender = ` 
   <div class="content-article-container">
@@ -64,12 +64,8 @@ export function renderHeaderPlantations(dados, index, boolean) {
     </div>
   </div>
 `;
-  if (index === 0 && boolean) {
+  if (index === 0) {
     const cardPlantation = `${htmlRender}<div data-he${dados.id} class="content-article row">
-    </div>`;
-    cardSelector.insertAdjacentHTML("beforeend", cardPlantation);
-  } else if (index === 0 && !boolean) {
-    const cardPlantation = `${htmlRender}<div data-he${dados.id} class="content-article row" style="display: none;">
     </div>`;
     cardSelector.insertAdjacentHTML("beforeend", cardPlantation);
   } else {

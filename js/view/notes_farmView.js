@@ -1,5 +1,4 @@
 export function renderContentNotes(data) {
-  console.log(data);
   if (data.attachments.images.length != 0) {
     // const urls = [];
     let imagesUrl = "";

@@ -1,5 +1,5 @@
 //GET URL API
-const key = "https://justcors.com/tl_0e09ddc/";
+const key = "https://justcors.com/tl_f569cd7/";
 const token = "379238b5-705c-48bc-b8c9-27e26676b417";
 
 export async function getResource(resource) {
@@ -20,7 +20,7 @@ export async function getDetails() {
   try {
     const response = await fetch(url);
     const dados = await response.json();
-    console.log(dados);
+
     return dados;
   } catch (e) {
     return console.log("deu erro", e);
@@ -33,7 +33,7 @@ export async function getDetailsFarm() {
   try {
     const response = await fetch(url);
     const dados = await response.json();
-    console.log(dados);
+
     return dados;
   } catch (e) {
     return console.log("deu erro", e);

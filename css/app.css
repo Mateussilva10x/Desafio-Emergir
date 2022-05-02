@@ -95,6 +95,14 @@ body {
   font-weight: bold;
   line-height: 22px;
 }
+@media (max-width: 736px) {
+  .modal .modal-content span {
+    z-index: 9999;
+    position: fixed;
+    top: 11%;
+    right: 2%;
+  }
+}
 .modal .images-modal {
   display: flex;
   align-items: center;

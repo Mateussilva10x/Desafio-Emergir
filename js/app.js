@@ -15,15 +15,15 @@ window.onload = async () => {
   document.querySelector(".load").style = "display: flex";
   document.querySelector(".main-container").style = "display: none";
 
-  const test = document.querySelector(".content");
-  const test2 = document.querySelector("#row-content");
+  const section = document.querySelector(".content");
+  const content = document.querySelector("#row-content");
   const title = `<h2>Anotações da fazenda</h2>`;
   const title2 = `<h2 class="information-title">Eventos dos talhões</h2>`;
 
   if (document.readyState === "complete") {
     try {
-      test.insertAdjacentHTML("afterbegin", title);
-      test2.insertAdjacentHTML("afterend", title2);
+      section.insertAdjacentHTML("afterbegin", title);
+      content.insertAdjacentHTML("afterend", title2);
       await renderPlantations();
       await renderNotes();
       await renderView();

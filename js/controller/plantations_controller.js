@@ -4,7 +4,7 @@ import { renderContentPlantations } from "../view/plantationsView.js";
 
 export async function renderPlantations() {
   const dados = await getResource("plantations");
-  console.log(dados);
+
   const data = await getResource("notes");
 
   let arr1 = [];
@@ -18,15 +18,7 @@ export async function renderPlantations() {
   });
 
   dados.results.forEach((dados, index) => {
-    let cards = false;
-
-    data.results.forEach((data) => {
-      if (data.location.id === dados.id) {
-        cards = true;
-      }
-    });
-
-    renderHeaderPlantations(dados, index, cards);
+    renderHeaderPlantations(dados, index);
 
     arr1.forEach((data) => {
       if (data.location.id === dados.id) {
