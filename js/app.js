@@ -10,7 +10,7 @@ import { renderNotes } from "./controller/notesController.js";
 //PLANTATIONS
 import { renderPlantations } from "./controller/plantationsController.js";
 
-window.onload = async () => {
+window.onload = () => {
   renderHeader();
   document.querySelector(".load").style = "display: flex";
   document.querySelector(".main-container").style = "display: none";
@@ -24,14 +24,14 @@ window.onload = async () => {
     try {
       section.insertAdjacentHTML("afterbegin", title);
       content.insertAdjacentHTML("afterend", title2);
-      await renderPlantations();
-      await renderNotes();
-      await renderAside();
+      Promise.all([renderPlantations(), renderNotes(), renderAside()]).then(
+        () => {
+          document.querySelector(".main-container").style = "";
+          document.querySelector(".load").style = "display: none";
+        }
+      );
     } catch (e) {
       console.log(e);
-    } finally {
-      document.querySelector(".main-container").style = "";
-      document.querySelector(".load").style = "display: none";
     }
   }
 };
