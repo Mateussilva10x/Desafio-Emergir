@@ -1,11 +1,8 @@
-import { getDetails } from "../module/api.js";
-
-export async function renderHeader() {
-  const infos = await getDetails();
+export function headerView(farm) {
   const header = document.querySelector(".header-text");
   const headerContent = `
   <i class="fa-solid fa-file"></i>
-  <h1 date-header>Relatório de Visita Técnica - ${infos.details.date
+  <h1 date-header>Relatório de Visita Técnica - ${farm.details.date
     .split("-")
     .reverse()
     .join("/")}</h1>

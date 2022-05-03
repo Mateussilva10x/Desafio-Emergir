@@ -1,8 +1,8 @@
 //HEADER
-import { renderHeader } from "./view/headerView.js";
+import { renderHeader } from "./controller/headerController.js";
 
 //ASIDE
-import { renderAside } from "./view/asideView.js";
+import { renderAside } from "./controller/asideController.js";
 
 //NOTES
 import { renderNotes } from "./controller/notesController.js";

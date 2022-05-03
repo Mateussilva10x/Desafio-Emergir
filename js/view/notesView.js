@@ -1,38 +1,38 @@
-export function renderContentNotes(data) {
-  if (data.attachments.images.length > 0) {
+export function renderContentNotes(note) {
+  if (note.attachments.images.length > 0) {
     let imagesUrl = "";
-    data.attachments.images.forEach((element) => {
-      imagesUrl += `<img image-modal onclick="handleClick('${element.high_url}')" src="${element.thumb_url}" alt="" />`;
+    note.attachments.images.forEach((image) => {
+      imagesUrl += `<img image-modal onclick="handleClick('${image.high_url}')" src="${image.thumb_url}" alt="" />`;
     });
 
     const cardRow = document.querySelector("#row-content");
     const cardNotes = `<div class="row-content">
-    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${data.date
+    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${note.date
       .split("T")[1]
       .slice(0, 5)}</span></span>
     <div class="images-article">
       ${imagesUrl}
     </div>
-    <p>${data.description}</p>
+    <p>${note.description}</p>
     </div>`;
 
     cardRow.insertAdjacentHTML("afterbegin", cardNotes);
   } else {
     const cardRow = document.querySelector("#row-content");
     const cardNotes = `<div class="row-content">
-    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${data.date
+    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${note.date
       .split("T")[1]
       .slice(0, 5)}</span></span>
-    <p>${data.description}</p>
+    <p>${note.description}</p>
     </div>`;
 
     cardRow.insertAdjacentHTML("afterbegin", cardNotes);
   }
 }
 
-export function renderContentPlantations(item) {
-  const cardRow = document.querySelector(`[data-he${item.location.id}]`);
-  const arrows = document.querySelector(`[arrow${item.location.id}]`);
+export function renderContentPlantations(note) {
+  const cardRow = document.querySelector(`[data-he${note.location.id}]`);
+  const arrows = document.querySelector(`[arrow${note.location.id}]`);
   arrows.addEventListener("click", hideContainer);
 
   function hideContainer() {
@@ -55,30 +55,30 @@ export function renderContentPlantations(item) {
     cardRow.style.display = "flex";
   }
 
-  if (item.attachments.images.length != 0) {
+  if (note.attachments.images.length != 0) {
     let imagesUrl = "";
-    item.attachments.images.forEach((element) => {
-      imagesUrl += `<img image-modal onclick="handleClick('${element.high_url}')" src="${element.thumb_url}" alt="" />`;
+    note.attachments.images.forEach((image) => {
+      imagesUrl += `<img image-modal onclick="handleClick('${image.high_url}')" src="${image.thumb_url}" alt="" />`;
     });
 
     const cardNotes = ` <div class="row-content">
-    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${item.date
+    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${note.date
       .split("T")[1]
       .slice(0, 5)}</span></span>
     <div class="images-article">
     ${imagesUrl}
     </div>
-    <p>${item.description}</p>
+    <p>${note.description}</p>
     </div>
     `;
     cardRow.insertAdjacentHTML("afterbegin", cardNotes);
   } else {
-    const cardRow = document.querySelector(`[data-he${item.location.id}]`);
+    const cardRow = document.querySelector(`[data-he${note.location.id}]`);
     const cardNotes = ` <div class="row-content">
-    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${item.date
+    <span><i class="fa-solid fa-pencil"></i>Anotações <span class="space">${note.date
       .split("T")[1]
       .slice(0, 5)}</span></span>
-    <p>${item.description}</p>
+    <p>${note.description}</p>
     </div>
     `;
 
