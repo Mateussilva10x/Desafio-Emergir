@@ -1,5 +1,5 @@
 //GET URL API
-const key = "https://justcors.com/tl_5195067/";
+const key = "https://justcors.com/tl_ed7b0b9/";
 const token = "379238b5-705c-48bc-b8c9-27e26676b417";
 
 export async function getResource(resource) {
